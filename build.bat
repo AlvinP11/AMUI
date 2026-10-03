@@ -14,10 +14,14 @@ if not exist "%CSC%" (
 cd /d "%~dp0"
 if not exist bin mkdir bin
 
-"%CSC%" /nologo /target:winexe /optimize+ /platform:anycpu ^
+"%CSC%" /nologo /target:winexe /optimize+ /platform:anycpu /warnaserror+ ^
     /win32icon:assets\amui.ico ^
-    /reference:System.Windows.Forms.dll /reference:System.Drawing.dll ^
-    /out:bin\AMUI.exe src\AMUI.cs
+    /resource:assets\amui.ico,AMUI.amui.ico ^
+    /resource:assets\amui.png,AMUI.amui.png ^
+    /reference:System.dll /reference:System.Core.dll ^
+    /reference:System.Drawing.dll /reference:System.Windows.Forms.dll ^
+    /reference:System.Web.Extensions.dll ^
+    /out:bin\AMUI.exe src\*.cs
 if errorlevel 1 exit /b 1
 
 echo Built bin\AMUI.exe
