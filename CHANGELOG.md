@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.1 (2026-10-03)
+
+- Fixed: after switching Roblox accounts, a card could show the previous account's name and avatar. AMUI was trusting a browser-tracker cookie that all Roblox clients share. It now only uses the account Roblox reports when a client joins a game.
+- A client that hasn't joined a game yet now shows *Unknown account* instead of guessing.
+
 ## v1.1.0 (2026-10-03)
 
 AMUI now has a window that shows every open Roblox client.

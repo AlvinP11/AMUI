@@ -37,8 +37,10 @@ namespace AMUI
 
         // Each pattern is anchored to the line's own [FLog::...] tag, so text a
         // game prints into the log can't pose as one of these lines.
-        static readonly Regex AccountLine = new Regex(
-            @"^[^\[]*\[FLog::LogWin32BTId\].*?\brbxuid=(\d+)", RegexOptions.Compiled);
+        //
+        // The account comes only from the game-join report. Logs also contain
+        // an "rbxuid=" from Roblox's browser-tracker cookie, but every client
+        // on the PC shares that cookie, so it often names a different account.
         static readonly Regex LaunchingLine = new Regex(
             @"^[^\[]*\[FLog::SingleSurfaceApp\] (launchUGCGameInternal|initiateTeleport)", RegexOptions.Compiled);
         static readonly Regex JoiningLine = new Regex(
@@ -203,11 +205,7 @@ namespace AMUI
                 return;
 
             Match m;
-            if (line.IndexOf("rbxuid=", StringComparison.Ordinal) >= 0 && (m = AccountLine.Match(line)).Success)
-            {
-                c.UserId = ParseId(m.Groups[1].Value, c.UserId);
-            }
-            else if (LaunchingLine.IsMatch(line))
+            if (LaunchingLine.IsMatch(line))
             {
                 c.State = ClientState.Joining;
             }

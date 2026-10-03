@@ -106,8 +106,8 @@ The result is `bin\AMUI.exe`.
 **Can I get banned for this?**
 AMUI doesn't modify Roblox or touch its memory. It reserves two names in Windows and reads log files Roblox writes anyway. That said, Roblox doesn't officially support running multiple clients, so use it at your own risk.
 
-**A card says "Signing in..." or "Loading account..."**
-AMUI learns the account from the client's log a second or two after it starts, then fetches the name and avatar. If it never resolves, the client may have started before AMUI could match it to a log. Restarting that client fixes it.
+**A card says "Unknown account".**
+AMUI learns which account a client uses when that client joins a game, then fetches the name and avatar. A client sitting on the Roblox home screen shows *Unknown account* until it joins something. If a card stays stuck after joining, the client may have started before AMUI could match it to a log. Restarting that client fixes it.
 
 **It stopped working after a Roblox update.**
 Roblox might have changed how it detects other clients or what it writes to its logs. [Open an issue](https://github.com/AlvinP11/AMUI/issues/new/choose) and include your Roblox version.

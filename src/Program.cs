@@ -1,4 +1,4 @@
-// AMUI - Alvin's Roblox Multi-Instance
+﻿// AMUI - Alvin's Roblox Multi-Instance
 //
 // Roblox only allows one client per PC. When a client starts it claims two
 // named Windows objects, and a new client that finds them taken tells the old
@@ -22,8 +22,8 @@ using System.Windows.Forms;
 [assembly: AssemblyDescription("Alvin's Roblox Multi-Instance")]
 [assembly: AssemblyProduct("AMUI")]
 [assembly: AssemblyCopyright("Copyright (c) 2026 Alvino. MIT License.")]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyVersion("1.1.1.0")]
+[assembly: AssemblyFileVersion("1.1.1.0")]
 // Without this, Windows runs the app in .NET 4.0 compatibility mode, which
 // means old TLS defaults and no support for the PNG frames in the icon.
 [assembly: TargetFramework(".NETFramework,Version=v4.8", FrameworkDisplayName = ".NET Framework 4.8")]
@@ -32,7 +32,7 @@ namespace AMUI
 {
     static class Program
     {
-        public const string Version = "1.1.0";
+        public const string Version = "1.1.1";
         public const string RepoUrl = "https://github.com/AlvinP11/AMUI";
 
         [STAThread]

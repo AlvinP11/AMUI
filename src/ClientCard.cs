@@ -134,8 +134,11 @@ namespace AMUI
             int right = PowerRect.Left - Theme.S(12);
 
             // Line 1: display name and @username
+            // The account is only known once the client joins a game.
             string displayName = user != null && user.DisplayName != null ? user.DisplayName
-                               : Client.UserId != 0 ? "Loading account..." : "Signing in...";
+                               : Client.UserId != 0 ? "Loading account..."
+                               : Client.State == ClientState.Starting || Client.State == ClientState.Joining ? "Signing in..."
+                               : "Unknown account";
             Rectangle nameBox = new Rectangle(left, Theme.S(12), right - left, Theme.S(21));
             Size nameSize = TextRenderer.MeasureText(g, displayName, Theme.Name, nameBox.Size, LineFlags);
             TextRenderer.DrawText(g, displayName, Theme.Name, nameBox, Theme.Text, surface, LineFlags | TextFormatFlags.Bottom);
